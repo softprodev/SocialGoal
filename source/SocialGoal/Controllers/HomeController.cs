@@ -57,7 +57,8 @@ namespace SocialGoal.Controllers
         /// </summary>
         /// <param name="page"></param>
         /// <returns></returns>
-        public ActionResult Index(int page = 0)     
+        public ActionResult Index(int page = 0)
+        
         {
             int noOfRecords = 10;
             HomeViewModel dashboard = new HomeViewModel()

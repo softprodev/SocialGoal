@@ -132,7 +132,14 @@ namespace SocialGoal.Web.Controllers.Test
         {
             var userManager = new UserManager<ApplicationUser>(new TestUserStore());
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                RoleId = 0
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -193,7 +200,16 @@ namespace SocialGoal.Web.Controllers.Test
         {
             var userManager = new UserManager<ApplicationUser>(new TestUserStore());
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                UserName="adarsh",
+                RoleId = 0,
+                Id = "402bd590-fdc7-49ad-9728-40efbfe512ec"
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -262,7 +278,17 @@ namespace SocialGoal.Web.Controllers.Test
         {
             var userManager = new UserManager<ApplicationUser>(new TestUserStore());
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                UserName = "adarsh",
+                RoleId = 0,
+                Id = "402bd590-fdc7-49ad-9728-40efbfe512ec"
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -314,7 +340,17 @@ namespace SocialGoal.Web.Controllers.Test
         {
             var userManager = new UserManager<ApplicationUser>(new TestUserStore());
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                UserName = "adarsh",
+                RoleId = 0,
+                Id = "402bd590-fdc7-49ad-9728-40efbfe512ec"
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -366,7 +402,16 @@ namespace SocialGoal.Web.Controllers.Test
         public void Editprofile_Post()
         {
             var userManager = new UserManager<ApplicationUser>(new TestUserStore());
-            ApplicationUser applicationUser = getApplicationUser();
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                UserName = "adarsh",
+                RoleId = 0,
+                Id = "402bd590-fdc7-49ad-9728-40efbfe512ec"
+            };
             userRepository.Setup(x => x.Get(It.IsAny<Expression<Func<ApplicationUser, bool>>>())).Returns(applicationUser);
             UserProfileFormModel profile = new UserProfileFormModel();
 
@@ -384,7 +429,17 @@ namespace SocialGoal.Web.Controllers.Test
         {
             var userManager = new UserManager<ApplicationUser>(new TestUserStore());
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                UserName = "adarsh",
+                RoleId = 0,
+                Id = "402bd590-fdc7-49ad-9728-40efbfe512ec"
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -440,8 +495,19 @@ namespace SocialGoal.Web.Controllers.Test
         public void Accept_Request()
         {
             var userManager = new UserManager<ApplicationUser>(new TestUserStore());
-            ApplicationUser applicationUser = getApplicationUser();
-            userRepository.Setup(x => x.Get(It.IsAny<Expression<Func<ApplicationUser, bool>>>())).Returns(applicationUser);
+            ApplicationUser user = new ApplicationUser()
+            {
+                Id = "402bd590-fdc7-49ad-9728-40efbfe512ec",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                Email = "adarsh@foo.com",
+                UserName = "t t",
+                DateCreated = DateTime.Now,
+                LastLoginTime = DateTime.Now,
+                ProfilePicUrl = "",
+
+            };
+            userRepository.Setup(x => x.Get(It.IsAny<Expression<Func<ApplicationUser, bool>>>())).Returns(user);
             AccountController contr = new AccountController(userService, userProfileService, goalService, updateService, commentService, followRequestService, followUserService, securityTokenService,userManager);
             var result = contr.AcceptRequest("402bd590-fdc7-49ad-9728-40efbfe512ed","402bd590-fdc7-49ad-9728-40efbfe512ec") as RedirectToRouteResult;
             Assert.AreEqual("Index", result.RouteValues["action"]);
@@ -468,7 +534,17 @@ namespace SocialGoal.Web.Controllers.Test
         {
             var userManager = new UserManager<ApplicationUser>(new TestUserStore());
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                UserName = "adarsh",
+                RoleId = 0,
+                Id = "402bd590-fdc7-49ad-9728-40efbfe512ec"
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -529,7 +605,17 @@ namespace SocialGoal.Web.Controllers.Test
         {
             var userManager = new UserManager<ApplicationUser>(new TestUserStore());
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                UserName = "adarsh",
+                RoleId = 0,
+                Id = "402bd590-fdc7-49ad-9728-40efbfe512ec"
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -596,7 +682,17 @@ namespace SocialGoal.Web.Controllers.Test
         {
             var userManager = new UserManager<ApplicationUser>(new TestUserStore());
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                UserName = "adarsh",
+                RoleId = 0,
+                Id = "402bd590-fdc7-49ad-9728-40efbfe512ec"
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -720,8 +816,11 @@ namespace SocialGoal.Web.Controllers.Test
             mockAuthenticationManager.Setup(am => am.SignOut());
             mockAuthenticationManager.Setup(am => am.SignIn());
             controller.AuthenticationManager = mockAuthenticationManager.Object;
-            ApplicationUser applicationUser = getApplicationUser();
-            userManager.CreateAsync(applicationUser, "123456");
+            ApplicationUser user=new ApplicationUser()
+            {
+                UserName="adarsh"
+            };
+            userManager.CreateAsync(user, "123456");
             var result = controller.Login(new LoginViewModel { Email = "adarsh", Password = "123456", RememberMe = false }, "abcd").Result;
             Assert.IsNotNull(result);
             var addedUser = userManager.FindByName("adarsh");
@@ -811,24 +910,6 @@ namespace SocialGoal.Web.Controllers.Test
             var addedUser = userManager.FindByName("adarsh");
             Assert.IsNotNull(addedUser);
             Assert.AreEqual("adarsh", addedUser.UserName);
-        }
-
-         public ApplicationUser getApplicationUser()
-        {
-          ApplicationUser applicationUser = new ApplicationUser()
-            {
-                Activated = true,
-                Email = "adarsh@foo.com",
-                FirstName = "Adarsh",
-                LastName = "Vikraman",
-                UserName = "adarsh",
-                RoleId = 0,
-                Id = "402bd590-fdc7-49ad-9728-40efbfe512ec",
-                DateCreated = DateTime.Now,
-                LastLoginTime = DateTime.Now,
-                ProfilePicUrl = null,
-            };
-          return applicationUser;
         }
     }
 }

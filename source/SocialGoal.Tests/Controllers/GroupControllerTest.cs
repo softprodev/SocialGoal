@@ -147,7 +147,15 @@ namespace SocialGoal.Tests.Controllers
         {
 
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                RoleId = 0,
+                Id = "402bd590-fdc7-49ad-9728-40efbfe512ec"
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -305,7 +313,14 @@ namespace SocialGoal.Tests.Controllers
         {
             // Arrange 
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                RoleId = 0
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -380,7 +395,14 @@ namespace SocialGoal.Tests.Controllers
             //Arrange
 
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                RoleId = 0
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -448,7 +470,14 @@ namespace SocialGoal.Tests.Controllers
         {
 
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                RoleId = 0
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -549,7 +578,14 @@ namespace SocialGoal.Tests.Controllers
         public void Create_Focus()
         {
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                RoleId = 0
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -640,7 +676,15 @@ namespace SocialGoal.Tests.Controllers
 
 
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                RoleId = 0,
+                Id = "402bd590-fdc7-49ad-9728-40efbfe512ec"
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -742,7 +786,14 @@ namespace SocialGoal.Tests.Controllers
         public void Create_Goal()
         {
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                RoleId = 0
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -1231,7 +1282,15 @@ namespace SocialGoal.Tests.Controllers
         public void Save_Update_Post()
         {
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                RoleId = 0,
+                Id = "402bd590-fdc7-49ad-9728-40efbfe512ec"
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -1330,7 +1389,14 @@ namespace SocialGoal.Tests.Controllers
         public void Display_Updates()
         {
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                RoleId = 0,
+                Id="402bd590-fdc7-49ad-9728-40efbfe512ec"
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -1438,8 +1504,13 @@ namespace SocialGoal.Tests.Controllers
                 UserId = "402bd590-fdc7-49ad-9728-40efbfe512ec"
             };
             groupCommentUserRepository.Setup(x => x.Get(It.IsAny<Expression<Func<GroupCommentUser, bool>>>())).Returns(gcuser);
-            ApplicationUser applicationUser = getApplicationUser();
-            userRepository.Setup(x => x.Get(It.IsAny<Expression<Func<ApplicationUser, bool>>>())).Returns(applicationUser);
+
+            ApplicationUser user = new ApplicationUser()
+            {
+
+               Id = "402bd590-fdc7-49ad-9728-40efbfe512ec"
+            };
+            userRepository.Setup(x => x.Get(It.IsAny<Expression<Func<ApplicationUser, bool>>>())).Returns(user);
 
             GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
 
@@ -1456,7 +1527,14 @@ namespace SocialGoal.Tests.Controllers
         public void SaveComment()
         {
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                RoleId = 0
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -1559,7 +1637,15 @@ namespace SocialGoal.Tests.Controllers
         public void Invite_User()
         {
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                RoleId = 0,
+                Id = "402bd590-fdc7-49ad-9728-40efbfe512ec"
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -1588,6 +1674,9 @@ namespace SocialGoal.Tests.Controllers
             contextBase.SetupGet(a => a.Response.Cookies).Returns(new HttpCookieCollection());
 
             var formsAuthentication = new DefaultFormsAuthentication();
+
+
+
             formsAuthentication.SetAuthCookie(contextBase.Object, testTicket);
 
             HttpCookie authCookie = contextBase.Object.Response.Cookies[FormsAuthentication.FormsCookieName];
@@ -1659,7 +1748,14 @@ namespace SocialGoal.Tests.Controllers
         public void Join_Group_Get_Action()
         {
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                RoleId = 0
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -1717,7 +1813,14 @@ namespace SocialGoal.Tests.Controllers
         public void Group_Join_Request_Post_Action_Test()
         {
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                RoleId = 0
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -1888,7 +1991,14 @@ namespace SocialGoal.Tests.Controllers
         public void Search_Goal_For_Assigning()
         {
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                RoleId = 0
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -1986,7 +2096,16 @@ namespace SocialGoal.Tests.Controllers
         public void Edit_Update_Post()
         {
             MemoryUser user = new MemoryUser("adarsh");
-            ApplicationUser applicationUser = getApplicationUser();
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                Activated = true,
+                Email = "adarsh@foo.com",
+                FirstName = "Adarsh",
+                LastName = "Vikraman",
+                RoleId = 0,
+                Id = "402bd590-fdc7-49ad-9728-40efbfe512ec"
+
+            };
             var userContext = new UserInfo
             {
                 UserId = user.Id,
@@ -2019,6 +2138,9 @@ namespace SocialGoal.Tests.Controllers
             contextBase.SetupGet(a => a.Response.Cookies).Returns(new HttpCookieCollection());
 
             var formsAuthentication = new DefaultFormsAuthentication();
+
+
+
             formsAuthentication.SetAuthCookie(contextBase.Object, testTicket);
 
             HttpCookie authCookie = contextBase.Object.Response.Cookies[FormsAuthentication.FormsCookieName];
@@ -2191,24 +2313,6 @@ namespace SocialGoal.Tests.Controllers
             PartialViewResult result = controller.SupportersOfUpdate(1) as PartialViewResult;
             Assert.IsNotNull(result);
             Assert.IsInstanceOf(typeof(GroupUpdateSupportersViewModel), result.ViewData.Model, "Wrong View Model");
-        }
-
-        public ApplicationUser getApplicationUser()
-        {
-            ApplicationUser applicationUser = new ApplicationUser()
-            {
-                Activated = true,
-                Email = "adarsh@foo.com",
-                FirstName = "Adarsh",
-                LastName = "Vikraman",
-                UserName = "adarsh",
-                RoleId = 0,
-                Id = "402bd590-fdc7-49ad-9728-40efbfe512ec",
-                DateCreated = DateTime.Now,
-                LastLoginTime = DateTime.Now,
-                ProfilePicUrl = null,
-            };
-            return applicationUser;
         }
     }
 
